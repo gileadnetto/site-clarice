@@ -176,7 +176,7 @@ export default function Home() {
   const [login, setLogin] = useState('');
   const [senha, setSenha] = useState('');
   const [logado, setLogado] = useState(false);
-  const [dados, setDados] = useState(JSON.parse(JSON.stringify(data)));
+  const [dados, setDados] = useState([]);
   const [menuAtivo, setMenuAtivo] = useState('home');
   const [mensagemPost, setMensagemPost] = useState('');
   const [postErro, setPostErro] = useState(false);
@@ -242,25 +242,27 @@ export default function Home() {
 
   return (
     <>
-      <section>
+    {dados &&
+        <section>
 
-        {!logado ?
-          <RenderLogin senha={senha} setSenha={setSenha} login={login} setLogin={setLogin} data={dados} setLogado={setLogado} />
-          :
-          <>
-            <MenuSite dadosJson={dados} menuAtivo={menuAtivo} setMenuAtivo={setMenuAtivo} setMensagemPost={setMensagemPost} />
-            <RenderConfiguracoes dadosJson={dados} setDados={setDados} handleAlterar={handleAlterar} menuAtivo={menuAtivo} />
-            <button
-              onClick={() => salvar()}
-              className="block mt-4 py-2 px-4 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75">
-              Salvar
-            </button>
-            {mensagemPost && <p className={' mt-4 font-medium ' + (!postErro ? ' text-green-600' : 'text-red-400')}>{mensagemPost}</p>}
-          </>
+          {!logado ?
+            <RenderLogin senha={senha} setSenha={setSenha} login={login} setLogin={setLogin} data={dados} setLogado={setLogado} />
+            :
+            <>
+              <MenuSite dadosJson={dados} menuAtivo={menuAtivo} setMenuAtivo={setMenuAtivo} setMensagemPost={setMensagemPost} />
+              <RenderConfiguracoes dadosJson={dados} setDados={setDados} handleAlterar={handleAlterar} menuAtivo={menuAtivo} />
+              <button
+                onClick={() => salvar()}
+                className="block mt-4 py-2 px-4 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75">
+                Salvar
+              </button>
+              {mensagemPost && <p className={' mt-4 font-medium ' + (!postErro ? ' text-green-600' : 'text-red-400')}>{mensagemPost}</p>}
+            </>
 
-        }
+          }
 
-      </section>
+        </section>
+  }
     </>
   )
 }
