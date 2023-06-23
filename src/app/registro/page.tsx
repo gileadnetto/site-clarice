@@ -1,11 +1,11 @@
 'use client'
-// import { useData } from '../../../contexts/DataContext';
+import { useData } from '../../../contexts/DataContext';
 import { useEffect, useState } from 'react';
-import RenderDados from '../../components/renderDados'
+import RenderDados from '@/components/renderDados'
 
-export default async function Page() {
-	// const data = useData();
-	const [dados, setDados] = useState([]);
+export default function Page() {
+	//   const data = useData();
+	const [dados, setDados] = useState(null);
 
 	useEffect(() => {
 
@@ -23,7 +23,6 @@ export default async function Page() {
 		}
 		fetchData();
 	}, []);
-
 
 	return (
 		<>
