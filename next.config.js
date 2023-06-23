@@ -1,4 +1,11 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {}
+const nextConfig = {
+}
 
-module.exports = nextConfig
+module.exports = {
+    images: {
+      domains: ['images.educamaisbrasil.com.br'],
+    },
+  };
+
+// module.exports = nextConfig
