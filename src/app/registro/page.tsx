@@ -3,29 +3,6 @@ import { useData } from '../../../contexts/DataContext';
 import { useEffect, useState } from 'react';
 import RenderDados from '../../components/renderDados'
 
-// export const metadata = {
-//   title: 'Clarice - Registro',
-//   description: 'Site clarice',
-// }
-
-
-interface Dados {
-	Titulo: string;
-	Subtitulo: string;
-	paginas: {
-		quemSomos: [
-			{
-				tipo: string,
-				dados: [],
-				Titulo: string,
-				conteudo: string,
-				class: string,
-				imagem: string
-			}
-		]
-	}
-}
-
 export default async function Page() {
 	const data = useData();
 	let res: any = null;

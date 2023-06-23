@@ -25,12 +25,14 @@ export async function GET(req: Request){
 export async function POST(request: Request){
 
   const dadosConfig = await request.json();
-      
-
-  // let test = JSON.parse(da)
-  const jsonDirectory = path.join(process.cwd(), 'data');
-
-  const fileContents = await fs.writeFile(jsonDirectory + '/dados.json', JSON.stringify(dadosConfig));
+     
+  try{
+    const jsonDirectory = path.join(process.cwd(), 'data');
+    await fs.writeFile(jsonDirectory + '/dados.json', JSON.stringify(dadosConfig));
+  }catch (erro: any) {
+    return NextResponse.json({ erro: erro.message })
+  }
+  
 
   // return NextResponse.json({ revalidated: true, now: Date.now() })
 
