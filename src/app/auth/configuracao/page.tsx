@@ -1,6 +1,6 @@
 'use client'
 
-import { useData } from '../../../../contexts/DataContext';
+// import { useData } from '../../../../contexts/DataContext';
 import { useEffect, useState } from 'react';
 import MenuSite from '@/components/menuSite';
 
@@ -172,7 +172,7 @@ let RenderConfiguracoes = (props: any) => {
 
 export default function Home() {
 
-  const data = useData();
+  // const data = useData();
   const [login, setLogin] = useState('');
   const [senha, setSenha] = useState('');
   const [logado, setLogado] = useState(false);

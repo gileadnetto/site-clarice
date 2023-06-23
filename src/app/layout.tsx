@@ -15,17 +15,17 @@ export const metadata = {
 
 export default async function RootLayout({children,}: {children: React.ReactNode}) {
 
-  var data = [];
+  var data:any = [];
   
-  const jsonDirectory = path.join(process.cwd(), 'data');
-  const fileContents = await fs.readFile(jsonDirectory + '/dados.json', 'utf8');
-  // try{
-  //   let response = await fetch('https://1drv.ms/u/s!Am4OWUJ0EWD7g4UPonUvCeLf3sBchA?e=bOC8h9');
-  //   data = await response.json();
+  // const jsonDirectory = path.join(process.cwd(), 'data');
+  // const fileContents = await fs.readFile(jsonDirectory + '/dados.json', 'utf8');
+  // // try{
+  // //   let response = await fetch('https://1drv.ms/u/s!Am4OWUJ0EWD7g4UPonUvCeLf3sBchA?e=bOC8h9');
+  // //   data = await response.json();
     
-  // }catch(e){
-    data = await JSON.parse(fileContents);
-    data = await JSON.parse(JSON.stringify(data));
+  // // }catch(e){
+  //   data = await JSON.parse(fileContents);
+  //   data = await JSON.parse(JSON.stringify(data));
 
   // }
  
