@@ -3,6 +3,8 @@
 // import { useData } from '../../../../contexts/DataContext';
 import { useEffect, useState } from 'react';
 import MenuSite from '@/components/menuSite';
+import { MD5 } from 'crypto-js';
+
 
 // export const metadata = {
 //   title: 'Clarice - Registro',
@@ -24,9 +26,16 @@ interface Dados {
   ]
 }
 
-function logar(dados: any) {
-  if (dados.login == dados.data.usuario && dados.senha == dados.data.senha) {
-    dados.setLogado(true)
+function logar(props: any) {
+
+  console.log(props.senha);
+  console.log(MD5(props.senha).toString());
+  console.log(props.data);
+
+  if (props.login == props.data.usuario && MD5(props.senha).toString() == props.data.senha) {
+    props.setLogado(true)
+  }else{
+    props.setErroLogin('Usuario ou senha inválido');
   }
 }
 
@@ -34,20 +43,25 @@ function logar(dados: any) {
 let RenderLogin = (props: any) => {
 
   return (
-    <div>
-      <p>Usuario:</p>
-      <input type="text" value={props.login} onChange={e => props.setLogin(e.target.value)} className="rounded-md border-0 py-1.5 pl-7 pr-20 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-1 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"></input>
+    <div className='flex justify-center'>
+      <div className='w-500 '>
+        <form onSubmit={(e) => {e.preventDefault(); logar(props)}}>
+          <p>Usuario:</p>
+          <input type="text" value={props.login} onChange={e => props.setLogin(e.target.value)} className="rounded-md border-0 py-1.5 pl-7 pr-20 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-1 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"></input>
 
 
-      <p className='mt-4'>senha:</p>
-      <input type="password" value={props.senha} onChange={e => props.setSenha(e.target.value)} className="rounded-md border-0 py-1.5 pl-7 pr-20 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-1 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"></input>
+          <p className='mt-4'>senha:</p>
+          <input type="password" value={props.senha} onChange={e => props.setSenha(e.target.value)} className="rounded-md border-0 py-1.5 pl-7 pr-20 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-1 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"></input>
 
-      <button
-        onClick={() => logar(props)}
-        className="block mt-4 py-2 px-4 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75">
-        Entrar
-      </button>
+          <button
+            onClick={() => logar(props)}
+            className="block mt-4 py-2 px-4 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75">
+            Entrar
+          </button>
+          <p className='text-red-500 my-2'>{props.erroLogin}</p>
+        </form>
 
+      </div>
     </div>
   )
 }
@@ -180,9 +194,7 @@ export default function Home() {
   const [menuAtivo, setMenuAtivo] = useState('home');
   const [mensagemPost, setMensagemPost] = useState('');
   const [postErro, setPostErro] = useState(false);
-
-
-
+  const [erroLogin, setErroLogin] = useState('');
 
 
   useEffect(() => {
@@ -246,7 +258,7 @@ export default function Home() {
         <section>
 
           {!logado ?
-            <RenderLogin senha={senha} setSenha={setSenha} login={login} setLogin={setLogin} data={dados} setLogado={setLogado} />
+            <RenderLogin senha={senha} setSenha={setSenha} login={login} setLogin={setLogin} data={dados} setLogado={setLogado} erroLogin={erroLogin} setErroLogin={setErroLogin} />
             :
             <>
               <MenuSite dadosJson={dados} menuAtivo={menuAtivo} setMenuAtivo={setMenuAtivo} setMensagemPost={setMensagemPost} />

@@ -3,6 +3,8 @@ import { promises as fs } from 'fs';
 import path from 'path';
 import { NextApiRequest, NextApiResponse } from 'next';
 import {dbConnect} from '../../../lib/db-connect';
+import { MD5 } from 'crypto-js';
+
 
 import {connectToDatabase} from '../../../config/mongodb';
 
@@ -12,7 +14,9 @@ export async function GET(req: Request){
 
   let jsonDados:any = [];
   await db.collection('clarice').find({}).toArray().then((dados:any) => {
-    jsonDados = dados[0];
+    dados = dados[0];
+    dados.dados.senha =  MD5(dados.dados.senha).toString();
+    jsonDados = dados;
   })
 
 
@@ -43,7 +47,6 @@ export async function GET(req: Request){
 export async function POST(request: Request){
 
   let dadosConfig = await request.json();
-  console.log('dadosConfig', dadosConfig);
 
   //  dadosConfig = await JSON.parse(dadosConfig);
   //  console.log('dadosConfig2', dadosConfig);
@@ -54,6 +57,7 @@ export async function POST(request: Request){
     let jsonDados:any = [];
     await db.collection('clarice').find({}).toArray().then((dados:any) => {
       jsonDados = dados[0];
+      dadosConfig.senha = jsonDados.dados.senha
     })
 
     await db.collection('clarice').updateOne(

@@ -1,1 +1,141 @@
-{"nome":"Clarice Netto","usuario":"clarice","senha":"netto","paginas":{"home":[{"Titulo":"Primeiro Cadasto no Home atualizando sera que agora vai?","tipo":"conteudo","imagem":"https://images.educamaisbrasil.com.br/content/internal/marketplace/educamaisbrasil/images/avaliacao/teoria.jpg","dados":[],"conteudo":"The workshop <b>Geometry in Algebra and Algebra in Geometry</b> VIIwill be held at Instituto de Ciências Exatas da Universidade Federal de Minas Gerais (ICEx) from Monday 23th to Friday 27th of October, 2023.It is the seventh edition of the workshop which has as aim to join young researchers whose research interests belong to interconnections between Algebra and Geometry.<br><br>The conference will take place at the Instituto de Ciências Exatas da Universidade Federal de Minas Gerais (ICEx-UFMG)."},{"Titulo":"","conteudo":"We plan to have 2 mini-courses and several scientific talks.","tipo":"conteudo","imagem":"","dados":[]},{"Titulo":"MINI-COURSES","tipo":"lista","imagem":"","conteudo":"","dados":["Daniele Faenzi(UB-France). <b>TBA</b>.","Miquel Cueca Ten(Gottingen University). <b>TBA.</b>","fas","asfa"]},{"conteudo":"Questions should be addressed to: gaag@ime.usp.br (regarding scientific program, venue, lodging etc.) or to the organizers:","Titulo":"Novo Titulo","tipo":"lista","imagem":"https://images.educamaisbrasil.com.br/content/internal/marketplace/educamaisbrasil/images/avaliacao/teoria.jpg","dados":["Ipoa","teste","dasd","fasfa","asfaf",null,null,null,null,null,null]},{"Titulo":"ORGANIZERS","tipo":"lista","conteudo":"","imagem":"","dados":["Aline Vilela Andrade (UFMG, Brazil)","Charles Almeida (UFMG, Brazil)","Cristian Ortiz (IME-USP, Brazil)","Kostiantyn Iusenko (IME-USP, Brazil)","adasasffsadf ","agasdfasgag","asdg asd <a class='text-cor-principal' href=\"https://google.com.br\">Google</a> "]},{"Titulo":"Atualizado update","conteudo":"Teste cadastro update","tipo":"conteudo","imagem":"","dados":[]}],"programas":[{"Titulo":"programas","tipo":"conteudo","imagem":"","conteudo":"Em criação","dados":[]}],"participantes":[{"Titulo":"participantes","tipo":"lista","imagem":"","conteudo":"Eu Gilead teste <b>netto</b>","dados":["André Netto","Clarice Netto","Gilead Netto (eu)","Fernanda Py","Jose Carlos","Rosani Souza","Emilly"]}],"poster":[{"Titulo":"Novo Poster","tipo":"conteudo","imagem":"","conteudo":"Meu primeiro poster cadastro teste Não me venha com essas desculpas","dados":[]}],"preview":[{"Titulo":"Preview","tipo":"conteudo","imagem":"","conteudo":"Em criação","dados":[]}],"registro":[{"Titulo":"Registro","tipo":"conteudo","imagem":"","conteudo":"Em criação","dados":[]}],"informações":[{"Titulo":"Informações","tipo":"conteudo","imagem":"","conteudo":"Em criação","dados":[]},{"Titulo":"Novas informações","conteudo":"N tem mais nada aqui ","tipo":"conteudo","imagem":"","dados":[]}]},"Protocol":"http","Host":"localhost:3000"}
+{
+    "nome": "Clarice Netto",
+    "usuario": "clarice",
+    "senha": "netto",
+    "paginas": {
+        "home": [
+            {
+                "Titulo": "Primeiro Cadasto no Home atualizando sera que agora vai?",
+                "tipo": "conteudo",
+                "imagem": "https://images.educamaisbrasil.com.br/content/internal/marketplace/educamaisbrasil/images/avaliacao/teoria.jpg",
+                "dados": [],
+                "conteudo": "The workshop <b>Geometry in Algebra and Algebra in Geometry</b> VIIwill be held at Instituto de Ciências Exatas da Universidade Federal de Minas Gerais (ICEx) from Monday 23th to Friday 27th of October, 2023.It is the seventh edition of the workshop which has as aim to join young researchers whose research interests belong to interconnections between Algebra and Geometry.<br><br>The conference will take place at the Instituto de Ciências Exatas da Universidade Federal de Minas Gerais (ICEx-UFMG)."
+            },
+            {
+                "Titulo": "",
+                "conteudo": "We plan to have 2 mini-courses and several scientific talks.",
+                "tipo": "conteudo",
+                "imagem": "",
+                "dados": []
+            },
+            {
+                "Titulo": "MINI-COURSES",
+                "tipo": "lista",
+                "imagem": "",
+                "conteudo": "",
+                "dados": [
+                    "Daniele Faenzi(UB-France). <b>TBA</b>.",
+                    "Miquel Cueca Ten(Gottingen University). <b>TBA.</b>",
+                    "fas",
+                    "asfa"
+                ]
+            },
+            {
+                "conteudo": "Questions should be addressed to: gaag@ime.usp.br (regarding scientific program, venue, lodging etc.) or to the organizers:",
+                "Titulo": "Novo Titulo",
+                "tipo": "lista",
+                "imagem": "https://images.educamaisbrasil.com.br/content/internal/marketplace/educamaisbrasil/images/avaliacao/teoria.jpg",
+                "dados": [
+                    "Ipoa",
+                    "teste",
+                    "dasd",
+                    "fasfa",
+                    "asfaf"
+                ]
+            },
+            {
+                "Titulo": "ORGANIZERS",
+                "tipo": "lista",
+                "conteudo": "",
+                "imagem": "",
+                "dados": [
+                    "Aline Vilela Andrade (UFMG, Brazil)",
+                    "Charles Almeida (UFMG, Brazil)",
+                    "Cristian Ortiz (IME-USP, Brazil)",
+                    "Kostiantyn Iusenko (IME-USP, Brazil)",
+                    "adasasffsadf ",
+                    "agasdfasgag",
+                    "asdg asd <a class='text-cor-principal' href=\"https://google.com.br\">Google</a> "
+                ]
+            },
+            {
+                "Titulo": "Atualizado update",
+                "conteudo": "Teste cadastro update",
+                "tipo": "conteudo",
+                "imagem": "",
+                "dados": []
+            }
+        ],
+        "programas": [
+            {
+                "Titulo": "programas",
+                "tipo": "conteudo",
+                "imagem": "",
+                "conteudo": "Em criação",
+                "dados": []
+            }
+        ],
+        "participantes": [
+            {
+                "Titulo": "participantes",
+                "tipo": "lista",
+                "imagem": "",
+                "conteudo": "Eu Gilead teste <b>netto</b>",
+                "dados": [
+                    "André Netto",
+                    "Clarice Netto",
+                    "Gilead Netto (eu)",
+                    "Fernanda Py",
+                    "Jose Carlos",
+                    "Rosani Souza",
+                    "Emilly"
+                ]
+            }
+        ],
+        "preview": [
+            {
+                "Titulo": "Preview",
+                "tipo": "conteudo",
+                "imagem": "",
+                "conteudo": "Em criação",
+                "dados": []
+            }
+        ],
+        "registro": [
+            {
+                "Titulo": "Registro",
+                "tipo": "conteudo",
+                "imagem": "",
+                "conteudo": "Em criação",
+                "dados": []
+            }
+        ],
+        "informações": [
+            {
+                "Titulo": "Informações",
+                "tipo": "conteudo",
+                "imagem": "",
+                "conteudo": "Em criação",
+                "dados": []
+            },
+            {
+                "Titulo": "Novas informações",
+                "conteudo": "N tem mais nada aqui ",
+                "tipo": "conteudo",
+                "imagem": "",
+                "dados": []
+            }
+        ],
+        "poster": [
+            {
+                "Titulo": "Novo Poster",
+                "tipo": "conteudo",
+                "imagem": "",
+                "conteudo": "Meu primeiro poster cadastro teste Não me venha com essas desculpas",
+                "dados": []
+            }
+        ],
+    },
+    "Protocol": "http",
+    "Host": "localhost:3000"
+}
