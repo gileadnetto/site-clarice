@@ -28,10 +28,6 @@ interface Dados {
 
 function logar(props: any) {
 
-  console.log(props.senha);
-  console.log(MD5(props.senha).toString());
-  console.log(props.data);
-
   if (props.login == props.data.usuario && MD5(props.senha).toString() == props.data.senha) {
     props.setLogado(true)
   }else{
@@ -101,7 +97,7 @@ let RenderConfiguracoes = (props: any) => {
           </span>
 
           <label>Titulo:</label>
-          <input type="text" value={props.dadosJson.paginas[i][x]?.Titulo || ''} onChange={e => { props.dadosJson.paginas[i][x].Titulo = e.target.value; props.handleAlterar(props.dadosJson); }} className=" w-200 rounded-md border-0 py-1.5 pl-7 pr-20 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-1 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"></input>
+          <input type="text" value={props.dadosJson.paginas[i][x].Titulo} onChange={e => { props.dadosJson.paginas[i][x].Titulo = e.target.value; props.handleAlterar(props.dadosJson); }} className=" w-200 rounded-md border-0 py-1.5 pl-7 pr-20 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-1 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"></input>
         </div>
       );
 
@@ -119,7 +115,7 @@ let RenderConfiguracoes = (props: any) => {
           
           if (sessao.dados[z] == null) {
             sessao.dados[z] = '';
-            props.handleAlterar(props.dadosJson);
+            // props.handleAlterar(props.dadosJson);
           }
 
           htmlInputs.push(
