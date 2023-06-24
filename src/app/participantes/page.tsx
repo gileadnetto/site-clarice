@@ -5,25 +5,30 @@ import RenderDados from '../../components/renderDados'
 
 
 export default function Page() {
+	const data = useData();
 
-	const [dados, setDados] = useState(null);
+	const [dados, setDados] = useState(data);
 
 	useEffect(() => {
-
 		document.title = 'Clarice - Participantes';
+		}, []);
 
-		async function fetchData() {
-			const protocol = window.location.protocol;
-			const host = window.location.host;
+	// useEffect(() => {
 
-			const url = protocol + '//' + host + '/api';
-			let response = await fetch(url);
-			let respon = await response.json();
-			setDados(JSON.parse(respon));
+	// 	document.title = 'Clarice - Participantes';
 
-		}
-		fetchData();
-	}, []);
+	// 	async function fetchData() {
+	// 		const protocol = window.location.protocol;
+	// 		const host = window.location.host;
+
+	// 		const url = protocol + '//' + host + '/api';
+	// 		let response = await fetch(url);
+	// 		let respon = await response.json();
+	// 		setDados(JSON.parse(respon));
+
+	// 	}
+	// 	fetchData();
+	// }, []);
 	
     return (
         <>

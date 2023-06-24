@@ -8,6 +8,8 @@ import Link from 'next/link';
 
 const inter = Inter({ subsets: ['latin'] })
 
+export const revalidate = 10;
+
 export const metadata = {
   title: 'Clarice - Home',
   description: 'Site clarice',
@@ -19,13 +21,19 @@ export default async function RootLayout({children,}: {children: React.ReactNode
   
   // const jsonDirectory = path.join(process.cwd(), 'data');
   // const fileContents = await fs.readFile(jsonDirectory + '/dados.json', 'utf8');
-  // // try{
-  // //   let response = await fetch('https://1drv.ms/u/s!Am4OWUJ0EWD7g4UPonUvCeLf3sBchA?e=bOC8h9');
-  // //   data = await response.json();
+  // try{
+    // const protocol = window.location.protocol;
+    // const host = window.location.host;
+
+    let url2='http://localhost:3000/api'
+    // const url = protocol + '//' + host + '/api';
+    let response = await fetch(url2, { cache: "no-store" });
+    let respon = await response.json();
+    data = await JSON.parse(respon);
     
-  // // }catch(e){
-  //   data = await JSON.parse(fileContents);
-  //   data = await JSON.parse(JSON.stringify(data));
+  // }catch(e){
+    // data = await JSON.parse(fileContents);
+    // data = await JSON.parse(JSON.stringify(data));
 
   // }
  

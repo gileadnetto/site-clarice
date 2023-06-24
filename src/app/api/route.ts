@@ -4,6 +4,8 @@ import path from 'path';
 import { NextApiRequest, NextApiResponse } from 'next';
 import {dbConnect} from '../../../lib/db-connect';
 import { MD5 } from 'crypto-js';
+const os = require('os');
+
 
 
 import {connectToDatabase} from '../../../config/mongodb';
@@ -18,8 +20,6 @@ export async function GET(req: Request){
     dados.dados.senha =  MD5(dados.dados.senha).toString();
     jsonDados = dados;
   })
-
-
 
 
   // const jsonDirectory = path.join(process.cwd(), 'data');
@@ -69,15 +69,6 @@ export async function POST(request: Request){
 
     // await db.collection('clarice').insertOne({ dados: dadosConfig })
 
-     
-
-  // try{
-  //   const jsonDirectory = path.join(process.cwd(), 'data');
-  //   await fs.writeFile(jsonDirectory + '/dados.json', JSON.stringify(dadosConfig));
-  // }catch (erro: any) {
-  //   return NextResponse.json({ erro: erro.message })
-  // }
-  
 
   // return NextResponse.json({ revalidated: true, now: Date.now() })
 

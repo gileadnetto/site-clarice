@@ -4,25 +4,29 @@ import { useEffect, useState } from 'react';
 import RenderDados from '@/components/renderDados'
 
 export default function Page() {
-  //   const data = useData();
-  const [dados, setDados] = useState(null);
+	const data = useData();
+  const [dados, setDados] = useState(data);
 
   useEffect(() => {
+    document.title = 'Clarice - Programas';
+    }, []);
 
-	  document.title = 'Clarice - Programas';
+//   useEffect(() => {
 
-	  async function fetchData() {
-		  const protocol = window.location.protocol;
-		  const host = window.location.host;
+// 	  document.title = 'Clarice - Programas';
 
-		  const url = protocol + '//' + host + '/api';
-		  let response = await fetch(url);
-		  let respon = await response.json();
-		  setDados(JSON.parse(respon));
+// 	  async function fetchData() {
+// 		  const protocol = window.location.protocol;
+// 		  const host = window.location.host;
 
-	  }
-	  fetchData();
-  }, []);
+// 		  const url = protocol + '//' + host + '/api';
+// 		  let response = await fetch(url);
+// 		  let respon = await response.json();
+// 		  setDados(JSON.parse(respon));
+
+// 	  }
+// 	  fetchData();
+//   }, []);
 
   return (
     <>
