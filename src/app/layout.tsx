@@ -49,18 +49,18 @@ export default async function RootLayout({children,}: {children: React.ReactNode
               minHeight: '100vh'
             }}>
 
-              <div className="px-16 py-7 bg-white flex gap-5">
+              <div className="px-16 py-7 bg-white flex gap-5 flex-wrap">
                 <div className='flex-1'>
-                  <h1 className='text-6xl tracking-widest'><b>GAAG </b><span className='text-cor-principal ml-5 font-thin'>2023</span></h1>
-                  <p className='text-3xl mt-5'>Geometry in Algebra</p>
-                  <p className='text-3xl text-cor-principal font-medium'>Algebra in Geometry VII</p>
+                  <h1 className=' tracking-widest tablet:text-6xl text-2xl'><b>GAAG </b><span className='text-cor-principal tablet:ml-5 ml-0 font-thin'>2023</span></h1>
+                  <p className='tablet:text-3xl text-md mt-5'>Geometry in Algebra</p>
+                  <p className='tablet:text-3xl text-md text-cor-principal font-medium'>Algebra in Geometry VII</p>
                 </div>
 
                 <div className='flex flex-col max-w-xs justify-center text-cor-texto'>
                     
-                    <div>23—27 October 2023</div>
+                    <div className='tablet:text-1xl text-sm'>23—27 October 2023</div>
                     
-                    <div className='mt-3 font-medium'>
+                    <div className='tablet:text-1xl text-sm mt-3 font-medium'>
                       <p>
                         Universidade Federal de Minas Gerais
                         Belo Horizonte, Brazil
