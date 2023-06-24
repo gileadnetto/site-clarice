@@ -8,8 +8,6 @@ import Link from 'next/link';
 
 const inter = Inter({ subsets: ['latin'] })
 
-export const revalidate = 10;
-
 export const metadata = {
   title: 'Clarice - Home',
   description: 'Site clarice',
@@ -25,9 +23,9 @@ export default async function RootLayout({children,}: {children: React.ReactNode
     // const protocol = window.location.protocol;
     // const host = window.location.host;
 
-    let url2='http://localhost:3000/api'
+    // let url2='https://site-clarice.vercel.app/api'
     // const url = protocol + '//' + host + '/api';
-    let response = await fetch(url2, { cache: "no-store" });
+    let response = await fetch(process.env.API_VERCEL_URL || 'http://localhost:3000/api');
     let respon = await response.json();
     data = await JSON.parse(respon);
     
