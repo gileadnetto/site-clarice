@@ -46,7 +46,8 @@ export default async function RootLayout({children,}: {children: React.ReactNode
           <div className='flex flex-col bg-cor-fundo' style={{
               width:'100vw',
               maxWidth:'1000px',
-              minHeight: '100vh'
+              minHeight: '100vh',
+              overflow:'hidden'
             }}>
 
               <div className="px-16 py-7 bg-white flex gap-5 flex-wrap">

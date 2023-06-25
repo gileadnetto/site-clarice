@@ -3,17 +3,58 @@
 @tailwind utilities;
 
 @layer components {
-  .ativo {
+  li.ativo {
     background-color: theme('colors.white');
     border-radius: theme('borderRadius.lg');
     padding: theme('spacing.2');
     box-shadow: theme('boxShadow.xl');
     color: #000;
   }
-  .ativo:hover {
+  li.ativo:hover {
     color: #000 !important;
   }
-  /* ... */
+
+  .menu-hamburger{
+    transition: all .3s !important;
+  }
+
+  .menu-hamburger span{
+    border-radius: 10px;
+    transition: all .3s !important;
+  }
+
+  
+ 
+  .menu-hamburger.ativo span:nth-child(1){
+    transform: rotate(45deg) translate(10px,10px)
+  }
+
+  .menu-hamburger.ativo span:nth-child(2){
+    transform: translateX(200px);
+    opacity: 0;
+  }
+  .menu-hamburger.ativo span:nth-child(3){
+    transform: rotate(-45deg) translate(8px,-10px);
+  }
+
+  .menu-container-links{
+    transition: transform .3s !important;
+    right: 0;
+    transform: translateX(800px);
+  }
+  .menu-container-links.mostrar{
+    transform: translateX(10px) !important;
+  }
+
+  .menu-container-links li.ativo {
+    background-color: theme('colors.cor-principal');
+    padding: theme('spacing.2');
+    box-shadow: theme('boxShadow.xl');
+    color: #fff;
+    border-radius: none;
+    font-weight: 500;
+  }
+
 }
 
 :root {
