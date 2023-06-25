@@ -30,11 +30,11 @@
   }
 
   .menu-hamburger.ativo span:nth-child(2){
-    transform: translateX(200px);
+    transform: translateX(100px);
     opacity: 0;
   }
   .menu-hamburger.ativo span:nth-child(3){
-    transform: rotate(-45deg) translate(8px,-10px);
+    transform: rotate(-45deg) translate(8px,-8px);
   }
 
   .menu-container-links{
