@@ -41,9 +41,11 @@
     transition: transform .3s !important;
     right: 0;
     transform: translateX(800px);
+    will-change: transform;
   }
   .menu-container-links.mostrar{
     transform: translateX(10px) !important;
+    will-change: transform;
   }
 
   .menu-container-links li.ativo {
@@ -51,7 +53,7 @@
     padding: theme('spacing.2');
     box-shadow: theme('boxShadow.xl');
     color: #fff;
-    border-radius: none;
+    border-radius: 0;
     font-weight: 500;
   }
 
