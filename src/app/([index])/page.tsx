@@ -13,6 +13,8 @@ export default async function Page(props:any) {
     render = await Object.keys((props.searchParams))[0].toString();
   }
  
-   if(dados) return <RenderDados dadosJson={dados} pagina={render} ></RenderDados>
+   if( Object.keys(dados).length > 0) return <RenderDados dadosJson={dados} pagina={render} ></RenderDados>
+
+   return <></>
 
   } 
