@@ -22,7 +22,6 @@ export async function GET(req: Request){
   }catch(e:any){
     return NextResponse.json(JSON.stringify({erro: e.message}))
   }
- 
 
   return NextResponse.json(JSON.stringify(jsonDados.dados))
 }

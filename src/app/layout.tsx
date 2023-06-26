@@ -19,25 +19,14 @@ export default async function RootLayout({children,}: {children: React.ReactNode
 
   var data:any = [];
   
-  // const jsonDirectory = path.join(process.cwd(), 'data');
-  // const fileContents = await fs.readFile(jsonDirectory + '/dados.json', 'utf8');
-  // try{
-    // const protocol = window.location.protocol;
-    // const host = window.location.host;
+    try{
+      let response = await fetch(process.env.API_VERCEL_URL || 'http://localhost:3000/api', { cache: "no-store" });
+      let respon = await response.json();
+      data = await JSON.parse(respon);
 
-    // let url2='https://site-clarice.vercel.app/api'
-    // const url = protocol + '//' + host + '/api';
-    let response = await fetch(process.env.API_VERCEL_URL || 'http://localhost:3000/api', { cache: "no-store" });
-    let respon = await response.json();
-    data = await JSON.parse(respon);
-    
-  // }catch(e){
-    // data = await JSON.parse(fileContents);
-    // data = await JSON.parse(JSON.stringify(data));
-
-  // }
- 
-  
+    }catch(erro){
+      data = [];
+    }
 
   return (
     <html lang="pt-br">
