@@ -2,15 +2,47 @@
 
 import Link from "next/link";
 import 'tailwindcss/tailwind.css';
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useData } from '../../contexts/DataContext';
+
 // import { useState } from 'react';
 
-export default function Menu() {
+export default function Menu(props:any) {
+    const data = useData();
 
-    const [ativo, setAtivo] = useState('HOME');
-
+    const [ativo, setAtivo] = useState<any>(null);
     const [aberto, setAberto] = useState(false);
-   
+
+    useEffect(() => {
+
+	 	document.title = 'Clarice - Home';
+
+	 	async function fetchData() {
+
+            const url = new URL(window.location.href);
+            const searchParams = new URLSearchParams(url.search);
+            const firstParam = searchParams.keys().next().value;
+            if(firstParam){
+                setAtivo(firstParam);
+            }
+            else{
+                setAtivo('home');
+            }
+
+	 	}
+	 	fetchData();
+    }, []);
+
+    const Links = () =>{
+
+        let html = [];
+        for(let pag in data.paginas){
+            let pagin = data.paginas[pag];
+            html.push(<li key={'menu_'+pag} className={ "hover:text-white transition-colors py-3  " + (ativo === (pagin?.link || 'home') ? 'ativo' : '' )} ><Link className="p-2 w-full block" onClick={() => {setAtivo(pagin?.link || 'home'); setAberto(false)}} href={'/?'+pagin.link}>{pagin.nome}</Link></li>);
+        }
+
+        return html;
+    }
 
     return (
 
@@ -31,27 +63,14 @@ export default function Menu() {
                     </div>
                 
                     <ul className={"flex flex-col w-80 absolute z-50 bg-white boxShadow.xl drop-shadow-md menu-container-links "+ (aberto ? 'mostrar' : '')} >
-                        <li className={ "hover:text-white transition-colors py-3  " + (ativo == 'HOME' ? 'ativo' : '' )} ><Link className="p-2 w-full block" onClick={() => {setAtivo('HOME'); setAberto(false)}} href='/'>HOME</Link></li>
-                        <li className={ "hover:text-white transition-colors py-3  " + (ativo == 'participantes' ? 'ativo' : '' )}><Link className="p-2 w-full block" onClick={() => {setAtivo('participantes'); setAberto(false)}} href='/participantes'>PARTICIPANTS</Link></li>
-                        <li className={ "hover:text-white transition-colors py-3  " + (ativo == 'programas' ? 'ativo' : '' )} ><Link className="p-2 w-full block" onClick={() => {setAtivo('programas'); setAberto(false)}} href='/programas'>PROGRAM</Link></li>
-                        <li className={ "hover:text-white transition-colors py-3  " + (ativo == 'registro' ? 'ativo' : '' )}><Link className="p-2 w-full block" onClick={() => {setAtivo('registro'); setAberto(false)}} href='/registro'>REGISTRATION</Link></li>
-                        <li className={ "hover:text-white transition-colors py-3  " + (ativo == 'informacao' ? 'ativo' : '' )}><Link className="p-2 w-full block" onClick={() => {setAtivo('informacao'); setAberto(false)}} href='/informacao'>PRACTICAL INFO</Link></li>
-                        <li className={ "hover:text-white transition-colors py-3  " + (ativo == 'preview' ? 'ativo' : '' )}><Link className="p-2 w-full block" onClick={() => {setAtivo('preview'); setAberto(false)}} href='/preview'>PREVIOUS</Link></li>
-                        <li className={ "hover:text-white transition-colors py-3  " + (ativo == 'poster' ? 'ativo' : '' )}><Link className="p-2 w-full block" onClick={() => {setAtivo('poster'); setAberto(false)}} href='/poster'>POSTER</Link></li>
+                        <Links />
                     </ul>
                 </div>
             </nav>
 
             <nav className='bg-cor-principal tablet:block hidden'>
-                
                 <ul className="tablet:flex-row tablet:flex  inline-block  tablet:my-0 my-3 " style={{height: '72px', alignItems: 'center', justifyContent: 'space-around'}}>
-                    <li className={ "hover:text-white transition-colors  " + (ativo == 'HOME' ? 'ativo' : '' )} ><Link className="p-2" onClick={() => setAtivo('HOME')} href='/'>HOME</Link></li>
-                    <li className={ "hover:text-white transition-colors  " + (ativo == 'participantes' ? 'ativo' : '' )}><Link className="p-2" onClick={() => setAtivo('participantes')} href='/participantes'>PARTICIPANTS</Link></li>
-                    <li className={ "hover:text-white transition-colors  " + (ativo == 'programas' ? 'ativo' : '' )} ><Link className="p-2" onClick={() => setAtivo('programas')} href='/programas'>PROGRAM</Link></li>
-                    <li className={ "hover:text-white transition-colors  " + (ativo == 'registro' ? 'ativo' : '' )}><Link className="p-2" onClick={() => setAtivo('registro')} href='/registro'>REGISTRATION</Link></li>
-                    <li className={ "hover:text-white transition-colors  " + (ativo == 'informacao' ? 'ativo' : '' )}><Link className="p-2" onClick={() => setAtivo('informacao')} href='/informacao'>PRACTICAL INFO</Link></li>
-                    <li className={ "hover:text-white transition-colors  " + (ativo == 'preview' ? 'ativo' : '' )}><Link className="p-2" onClick={() => setAtivo('preview')} href='/preview'>PREVIOUS</Link></li>
-                    <li className={ "hover:text-white transition-colors  " + (ativo == 'poster' ? 'ativo' : '' )}><Link className="p-2" onClick={() => setAtivo('poster')} href='/poster'>POSTER</Link></li>
+                    <Links />
                 </ul>
             </nav>
         </>

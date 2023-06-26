@@ -11,7 +11,7 @@ const inter = Inter({ subsets: ['latin'] })
 export const revalidate = 10;
 
 export const metadata = {
-  title: 'Clarice - Home',
+  title: 'Clarice',
   description: 'Site clarice',
 }
 
@@ -71,13 +71,12 @@ export default async function RootLayout({children,}: {children: React.ReactNode
                 
               </div>
 
-             <Menu />
-
-            <main className='px-10 py-10 font-light flex-1'>
               <DataProvider data={data}>
-                {children}
+                <Menu />
+                <main className='px-10 py-10 font-light flex-1'>
+                    {children}
+                </main>
               </DataProvider>
-            </main>
 
             <footer className='h-20 bg-zinc-300 flex items-center justify-center align-bottom'>
               <p>Rodapé by Gilead</p>

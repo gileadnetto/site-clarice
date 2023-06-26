@@ -4,8 +4,13 @@ import Image from 'next/image';
 import Link from "next/link";
 import 'tailwindcss/tailwind.css';
 import { useState } from "react";
+import { Svg404 } from '../components/svgs';
+
 // import { useState } from 'react';
 
+const Pagina404 = () =>{
+	return <center><Svg404 style={{width:"60%", minWidth: '100px'}}  /><h2 className='tracking-widest tablet:text-2xl text-1xl font-medium'>Pagina não encontrada</h2></center>
+}
 
 const RenderDadosPadrao = (props: any) => {
 
@@ -14,12 +19,31 @@ const RenderDadosPadrao = (props: any) => {
     let pag = props.pagina;
     let dadosJson = props.dadosJson
 
-	for (let i in dadosJson.paginas[pag]) {
-		let dado = dadosJson.paginas[pag][i];
+	var existeAPagina = dadosJson.paginas.some(function(item:any) {
+		return item.link === pag || (item.link == '' && pag == 'home' );
+	});
+
+	if(!existeAPagina){
+		return Pagina404();
+	}
+
+	// console.log(pags);
+	// if(!pags.includes(pag)) {
+	// 	return Pagina404();
+	// }
+
+	//obtendo os dados da pagina do link
+	var objetoPagina = dadosJson.paginas.filter(function(item:any) {
+		return item.link === pag || (item.link == '' && pag == 'home');
+	});
+
+	for (let i in objetoPagina[0].sessoes) {
+		
+		let dado = objetoPagina[0].sessoes[i];
+
 		if(!dado){
 			continue;
 		}
-
 		if (dado?.tipo == 'lista') {
 
 			let htmlComp = [<p key={i + 'sad'} className="font-medium">{dado?.Titulo}</p>];
