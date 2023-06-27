@@ -41,7 +41,7 @@ export default async function RootLayout({children,}: {children: React.ReactNode
               overflow:'hidden'
             }}>
 
-              <div className="px-16 py-7 bg-white flex gap-5 flex-wrap">
+              <header className="px-16 bg-white flex gap-5 flex-wrap pt-24 tablet:pb-16 pb-11 ">
                 <div className='flex-1'>
                   <h1 className=' tracking-widest tablet:text-6xl text-2xl'><b>GAAG </b><span className='text-cor-principal tablet:ml-5 ml-0 font-thin'>2023</span></h1>
                   <p className='tablet:text-3xl text-md mt-5'>Geometry in Algebra</p>
@@ -59,8 +59,7 @@ export default async function RootLayout({children,}: {children: React.ReactNode
                       </p>
                     </div>
                 </div>
-                
-              </div>
+              </header>
 
               <DataProvider data={data}>
                 <Menu />

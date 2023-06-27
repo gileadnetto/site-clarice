@@ -14,15 +14,15 @@ export default function MenuSite(props:any) {
         for(let i in props.dadosJson.paginas){
             let pagin = props.dadosJson.paginas[i];
 
-            html.push(<li key={'ul_pag_'+i} className={ "hover:text-white transition-colors  cursor-pointer " + (props.menuAtivo == (pagin?.link || 'home') ? 'ativo' : '' )} onClick={() => {props.setMenuAtivo(pagin?.link || 'home'); props.setMensagemPost('')}}>{pagin.nome}</li>)
+            html.push(<li key={'ul_pag_'+i} className={ "transition-colors  cursor-pointer inline-block " + (props.menuAtivo == (pagin?.link || 'home') ? 'ativo' : '' )} onClick={() => {props.setMenuAtivo(pagin?.link || 'home'); props.setMensagemPost('')}}>{pagin.nome}</li>)
         }
 
         return html
     }
 
     return (
-        <nav className='bg-zinc-300'>
-            <ul style={{height: '32px', display: 'flex', alignItems: 'center', justifyContent: 'space-around'}}>
+        <nav className=' menu-configuracao text-center mb-5'>
+            <ul>
                 {renderMenus()}
             </ul>
         </nav>

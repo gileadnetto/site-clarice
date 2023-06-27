@@ -113,24 +113,21 @@
   }
 
 
-
-/* 
-  .menu-principal li:before{
-    transition: all .2s linear;
-    content: '';
-    background: #04c99c;
-    display: block;
-    width: 100%;
-    height: calc(100% + 10px);
-    position: absolute;
-    transform: translateY(-70px);
-    z-index: 1;
-    border-radius: 0 0 7px 50%;
+  .menu-configuracao li{
+    padding: 10px;
+    border-radius: theme('borderRadius.lg');
   }
 
-  .menu-principal li:hover::before {
-    transform: translateY(0);
-  } */
+  .menu-configuracao li.ativo{
+    background: theme('colors.cor-principal');
+    color: #fff;
+    background-color: theme('colors.cor-principal');
+    padding: theme('spacing.2');
+    box-shadow: theme('boxShadow.xl');
+    /* color: #000; */
+  }
+
+
 
 }
 
@@ -149,5 +146,4 @@
 }
 
 body {
-  margin-top:65px !important;
 }
