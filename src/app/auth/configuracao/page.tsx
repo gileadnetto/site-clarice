@@ -227,6 +227,7 @@ export default function Home() {
   const [erroLogin, setErroLogin] = useState('');
   const [menusCriados, setMenusCriados] = useState(1);
 
+  const [itens, setItens] = useState(['Item 1', 'Item 2', 'Item 3', 'Item 4']);
 
 
   useEffect(() => {
@@ -306,6 +307,7 @@ export default function Home() {
   };
 
 
+
   return (
     <>
     {dados &&
@@ -315,16 +317,16 @@ export default function Home() {
             <RenderLogin senha={senha} setSenha={setSenha} login={login} setLogin={setLogin} data={dados} setLogado={setLogado} erroLogin={erroLogin} setErroLogin={setErroLogin} />
             :
             <>
-              <div className='flex align-middle justify-center my-7' >
+              {/* <div className='flex align-middle justify-center my-7' >
                 <button onClick={() => handleNovoLink()}>
                   <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6 inline-block text-green-400">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>
                   Novo menu
                 </button>
-              </div>
+              </div> */}
               
-              <MenuSite dadosJson={dados} menuAtivo={menuAtivo} setMenuAtivo={setMenuAtivo} setMensagemPost={setMensagemPost} />
+              <MenuSite dadosJson={dados} menuAtivo={menuAtivo} setMenuAtivo={setMenuAtivo} setMensagemPost={setMensagemPost} handleAlterar={handleAlterar} handleNovoLink={handleNovoLink} />
               <RenderConfiguracoes dadosJson={dados} setDados={setDados} handleAlterar={handleAlterar} menuAtivo={menuAtivo} setMenuAtivo={setMenuAtivo}/>
               <button
                 onClick={() => salvar()}
