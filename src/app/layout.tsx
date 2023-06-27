@@ -44,7 +44,7 @@ export default async function RootLayout({children,}: {children: React.ReactNode
               {/* <header className="px-16 bg-white flex gap-5 flex-wrap pt-24 tablet:pb-16 pb-11 "> */}
               <header className="px-16 bg-white pt-28 tablet:pb-16 pb-11 uppercase">
                 <center>
-                  <h1 className=' text-cor-principal tracking-widest tablet:text-4xl text-2xl font-medium'>X Workshop on Poisson Geometry <br></br> and Related Topics</h1>
+                  <h1 className=' text-cor-principal tracking-widest tablet:text-4xl text-2xl font-medium'>X Workshop on <span className='destacar'>Poisson</span> Geometry <br></br> and Related Topics</h1>
                   <p className='text-gray-500'>October 04-06, 2023</p>
                   <p className='text-gray-400 text-xs'>IME-USP, São Paulo </p>
                 </center>
