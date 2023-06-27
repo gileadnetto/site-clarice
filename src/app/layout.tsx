@@ -41,8 +41,14 @@ export default async function RootLayout({children,}: {children: React.ReactNode
               overflow:'hidden'
             }}>
 
-              <header className="px-16 bg-white flex gap-5 flex-wrap pt-24 tablet:pb-16 pb-11 ">
-                <div className='flex-1'>
+              {/* <header className="px-16 bg-white flex gap-5 flex-wrap pt-24 tablet:pb-16 pb-11 "> */}
+              <header className="px-16 bg-white pt-28 tablet:pb-16 pb-11 uppercase">
+                <center>
+                  <h1 className=' text-cor-principal tracking-widest tablet:text-4xl text-2xl font-medium'>X Workshop on Poisson Geometry <br></br> and Related Topics</h1>
+                  <p className='text-gray-500'>October 04-06, 2023</p>
+                  <p className='text-gray-400 text-xs'>IME-USP, São Paulo </p>
+                </center>
+                {/* <div className='flex-1'>
                   <h1 className=' tracking-widest tablet:text-6xl text-2xl'><b>GAAG </b><span className='text-cor-principal tablet:ml-5 ml-0 font-thin'>2023</span></h1>
                   <p className='tablet:text-3xl text-md mt-5'>Geometry in Algebra</p>
                   <p className='tablet:text-3xl text-md text-cor-principal font-medium'>Algebra in Geometry VII</p>
@@ -58,7 +64,7 @@ export default async function RootLayout({children,}: {children: React.ReactNode
                         Belo Horizonte, Brazil
                       </p>
                     </div>
-                </div>
+                </div> */}
               </header>
 
               <DataProvider data={data}>
