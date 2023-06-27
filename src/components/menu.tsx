@@ -33,13 +33,14 @@ export default function Menu(props:any) {
 	 	fetchData();
     }, []);
 
-    const Links = () =>{
+    const Links = ( props:any ) =>{
 
         let html = [];
         for(let pag in data.paginas){
             let pagin = data.paginas[pag];
-            html.push(<li key={'menu_'+pag} className={ "hover:text-white transition-colors py-3  " + (ativo === (pagin?.link || 'home') ? 'ativo' : '' )} ><Link className="p-2 w-full block" onClick={() => {setAtivo(pagin?.link || 'home'); setAberto(false)}} href={'/?'+pagin.link}>{pagin.nome}</Link></li>);
+            html.push(<li key={'menu_'+pag} className={ (props?.mobile ? 'hover:text-cor-principal transition-colors py-3 ' : ' ') + (ativo === (pagin?.link || 'home') ? 'ativo' : '' )} ><Link className={(props?.mobile ? 'p-2 w-full block' : '')} onClick={() => {setAtivo(pagin?.link || 'home'); setAberto(false)}} href={'/?'+pagin.link}>{pagin.nome}</Link></li>);
         }
+
 
         return html;
     }
@@ -47,7 +48,7 @@ export default function Menu(props:any) {
     return (
 
         <>
-            <nav className='bg-cor-principal tablet:hidden  block'>
+            <nav className='bg-cor-principal/90 tablet:hidden  block menu-principal-mobile'>
                 <div className="relative">
 
 
@@ -63,16 +64,17 @@ export default function Menu(props:any) {
                     </div>
                 
                     <ul className={"flex flex-col w-80 absolute z-50 bg-white boxShadow.xl drop-shadow-md menu-container-links "+ (aberto ? 'mostrar' : '')} >
-                        <Links />
+                        <Links mobile />
                     </ul>
                 </div>
             </nav>
 
-            <nav className='bg-cor-principal tablet:block hidden'>
-                <ul className="tablet:flex-row tablet:flex  inline-block  tablet:my-0 my-3 " style={{height: '72px', alignItems: 'center', justifyContent: 'space-around'}}>
+            <nav className=' tablet:block hidden menu-principal'>
+                <ul>
                     <Links />
                 </ul>
             </nav>
+            
         </>
     )
   }
