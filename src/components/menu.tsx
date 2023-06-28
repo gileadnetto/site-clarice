@@ -12,10 +12,12 @@ export default function Menu(props:any) {
 
     const [ativo, setAtivo] = useState<any>(null);
     const [aberto, setAberto] = useState(false);
+    const [title, setTitle] = useState('Home');
+
 
     useEffect(() => {
 
-	 	document.title = 'Clarice - Home';
+	 	document.title = 'xwpgrt';
 
 	 	async function fetchData() {
 
@@ -33,12 +35,16 @@ export default function Menu(props:any) {
 	 	fetchData();
     }, []);
 
+    useEffect(() => {
+        document.title = 'xwpgrt - '+ title;
+   }, [title]);
+
     const Links = ( props:any ) =>{
 
         let html = [];
         for(let pag in data.paginas){
             let pagin = data.paginas[pag];
-            html.push(<li key={'menu_'+pag} className={ (props?.mobile ? 'hover:text-cor-principal transition-colors py-3 ' : ' ') + (ativo === (pagin?.link || 'home') ? 'ativo' : '' )} ><Link className={(props?.mobile ? 'p-2 w-full block' : '')} onClick={() => {setAtivo(pagin?.link || 'home'); setAberto(false)}} href={'/?'+pagin.link}>{pagin.nome}</Link></li>);
+            html.push(<li key={'menu_'+pag} className={ (props?.mobile ? 'hover:text-cor-principal transition-colors py-3 ' : ' ') + (ativo === (pagin?.link || 'Home') ? 'ativo' : '' )} ><Link className={(props?.mobile ? 'p-2 w-full block' : '')} onClick={() => {setAtivo(pagin?.link || 'home'); setTitle(pagin?.nome || 'home'); setAberto(false)}} href={'/?'+pagin.link}>{pagin.nome}</Link></li>);
         }
 
 
