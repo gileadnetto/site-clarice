@@ -8,6 +8,8 @@ import { connectToDatabase } from '../../../config/mongodb';
 
 export async function GET(req: Request) {
 
+	// return NextResponse.json(JSON.stringify(''))
+
 	const { db, client } = await connectToDatabase();
 
 	let jsonDados: any = [];

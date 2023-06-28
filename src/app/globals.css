@@ -156,6 +156,7 @@
     width:100vw;
     max-width: 1024px;
     min-height: calc(100vh - 376px);
+    box-shadow: 0px 1px 6px 0px silver;
   }
 
   footer{
