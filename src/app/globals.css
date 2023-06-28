@@ -134,6 +134,33 @@
     display: inline-block;
   }
 
+  .header-img{
+    background-image: url('../../public/imagens/bg1.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+  }
+
+  .container-site{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .container-site + div{
+    width: 100vw;
+    max-width: 1024px
+  }
+
+  .container-site.container-main >div{
+    width:100vw;
+    max-width: 1024px;
+    min-height: calc(100vh - 376px);
+  }
+
+  footer{
+    border-top: 5px solid theme('colors.cor-principal');
+  }
 
 }
 
