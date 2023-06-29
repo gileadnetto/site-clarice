@@ -232,7 +232,7 @@ export default function Home() {
 
   useEffect(() => {
 
-    document.title = 'Clarice - Configuração';
+    document.title = 'XWPGRT - Configuração';
 
     async function fetchData() {
       const protocol = window.location.protocol;

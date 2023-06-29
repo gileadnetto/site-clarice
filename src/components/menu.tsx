@@ -17,7 +17,7 @@ export default function Menu(props:any) {
 
     useEffect(() => {
 
-	 	document.title = 'xwpgrt';
+	 	document.title = 'XWPGRT';
 
 	 	async function fetchData() {
 
@@ -36,7 +36,7 @@ export default function Menu(props:any) {
     }, []);
 
     useEffect(() => {
-        document.title = 'xwpgrt - '+ title;
+        document.title = 'XWPGRT - '+ title;
    }, [title]);
 
     const Links = ( props:any ) =>{
