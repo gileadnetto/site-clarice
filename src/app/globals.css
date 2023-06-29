@@ -155,12 +155,39 @@
   .container-site.container-main >div{
     width:100vw;
     max-width: 1024px;
-    min-height: calc(100vh - 376px);
+    min-height: calc(100vh - 582px);
     box-shadow: 0px 1px 6px 0px silver;
   }
 
   footer{
     border-top: 5px solid theme('colors.cor-principal');
+  }
+
+  b{
+    color: #ff6600
+  }
+
+    /* width */
+  ::-webkit-scrollbar {
+    width: 9px;
+  }
+
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+  }
+  
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #969696; 
+    /* background: #091659; */
+    border-radius: 3px;
+  }
+
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    /* background: #050c30; */
+    background: #6f6f6f;
   }
 
 }
