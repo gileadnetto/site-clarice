@@ -138,7 +138,7 @@
     background-image: url('../../public/imagens/bg.jpg');
     background-repeat: no-repeat;
     background-position: center;
-    /* background-size: cover; */
+    background-size: cover;
   }
 
   .container-site{
