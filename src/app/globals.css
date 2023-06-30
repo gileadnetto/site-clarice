@@ -183,10 +183,6 @@
     border-top: 5px solid theme('colors.cor-principal');
   }
 
-  b{
-    color: #ff6600
-  }
-
     /* width */
   ::-webkit-scrollbar {
     width: 9px;
