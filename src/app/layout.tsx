@@ -34,7 +34,6 @@ export default async function RootLayout({ children, }: { children: React.ReactN
                     </header>
 
                     <Container main>
-                        <Menu />
                         <main className='px-10 py-10 font-light flex-1'>
                             {children}
                         </main>

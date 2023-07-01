@@ -227,9 +227,6 @@ export default function Home() {
   const [erroLogin, setErroLogin] = useState('');
   const [menusCriados, setMenusCriados] = useState(1);
 
-  const [itens, setItens] = useState(['Item 1', 'Item 2', 'Item 3', 'Item 4']);
-
-
   useEffect(() => {
 
     document.title = 'XWPGRT - Configuração';
@@ -280,6 +277,7 @@ export default function Home() {
   const salvar = async () => {
 
     const url = window.location.protocol + '//' + window.location.host + '/api';
+    console.log('salvar action', url);
     setMensagemPost('');
     setPostErro(false)
 
