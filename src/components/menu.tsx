@@ -31,11 +31,13 @@ export default function Menu(props:ProdProps) {
        }
 
         async function fetchData() {
-          const url = process.env.API_VERCEL_URL || 'http://localhost:3000/api';
-          let response = await fetch(url);
-          let res = await response.json();
-          res = JSON.parse(res);
-          setDados(res);
+            const protocol = window.location.protocol;
+            const host = window.location.host;
+            const url = protocol + '//' + host + '/api';
+            let response = await fetch(url);
+            let res = await response.json();
+            res = JSON.parse(res);
+            setDados(res);
         }
     
         fetchData();
