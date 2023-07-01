@@ -13,7 +13,7 @@ export const revalidate = 10;
 
 export const metadata = {
     title: 'XWPGRT',
-    description: 'Evento  XWPGRT - X WORKSHOP ON POISSON GEOMETRY AND RELATED TOPICS - 2023',
+    description: 'The Workshop on Poisson Geometry and related topics is an annual event of the Brazilian Poisson Geometry community. The first edition took place in Rio de Janeiro in 2013, and this year we are celebrating the 10th edition. The main goal of the event is to gather researchers working in Poisson Geometry and related subjects, including: Lie groupoids, Lie algebroids, foliations, quantization, mathematical physics, homotopy structures, geometric mechanics, among others.',
 }
 
 export default async function RootLayout({ children, }: { children: React.ReactNode }) {
