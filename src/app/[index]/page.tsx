@@ -1,3 +1,4 @@
+import { validateConfig } from 'next/dist/server/config-shared';
 import RenderDados from '../../components/renderDados';
 
 interface ProdProps{

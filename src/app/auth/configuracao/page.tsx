@@ -235,9 +235,7 @@ export default function Home() {
     document.title = 'XWPGRT - Configuração';
 
     async function fetchData() {
-      const protocol = window.location.protocol;
-      const host = window.location.host;
-      const url = protocol + '//' + host + '/api';
+      const url = process.env.API_VERCEL_URL || 'http://localhost:3000/api';
       let response = await fetch(url);
       let res = await response.json();
       res = JSON.parse(res);

@@ -3,48 +3,54 @@
 import Link from "next/link";
 import 'tailwindcss/tailwind.css';
 import { useState, useEffect } from "react";
-import { useData } from '../../contexts/DataContext';
 
-// import { useState } from 'react';
+interface ProdProps{
+    params?:{
+      index?:string
+    }
+  } 
 
-export default function Menu(props:any) {
-    const data = useData();
+let slug = (url:string) => new URL(url).pathname.match(/[^\/]+/g)
+
+export default function Menu(props:ProdProps) {
 
     const [ativo, setAtivo] = useState<any>(null);
     const [aberto, setAberto] = useState(false);
-    const [title, setTitle] = useState('Home');
+    const [title, setTitle] = useState('home');
+    const [dados, setDados] = useState<any>([]);
 
 
     useEffect(() => {
 
-	 	document.title = 'XWPGRT';
+        document.title = 'XWPGRT';
 
-	 	async function fetchData() {
+        //irei pegar o o parametro url para definir qual menu esta ativo
+       let pagina = slug(window.location.href);
+       if(pagina?.length){
+        setAtivo(pagina[0])
+       }
 
-            const url = new URL(window.location.href);
-            const searchParams = new URLSearchParams(url.search);
-            const firstParam = searchParams.keys().next().value;
-            if(firstParam){
-                setAtivo(firstParam);
-            }
-            else{
-                setAtivo('home');
-            }
-
-	 	}
-	 	fetchData();
-    }, []);
+        async function fetchData() {
+          const url = process.env.API_VERCEL_URL || 'http://localhost:3000/api';
+          let response = await fetch(url);
+          let res = await response.json();
+          res = JSON.parse(res);
+          setDados(res);
+        }
+    
+        fetchData();
+      }, []);
 
     useEffect(() => {
         document.title = 'XWPGRT - '+ title;
    }, [title]);
 
-    const Links = ( props:any ) =>{
+    const Links = ( propriedades:any ) =>{
 
         let html = [];
-        for(let pag in data.paginas){
-            let pagin = data.paginas[pag];
-            html.push(<li key={'menu_'+pag} className={ (props?.mobile ? 'hover:text-cor-principal transition-colors py-3 ' : ' ') + (ativo === (pagin?.link || 'Home') ? 'ativo' : '' )} ><Link className={(props?.mobile ? 'p-2 w-full block' : '')} onClick={() => {setAtivo(pagin?.link || 'home'); setTitle(pagin?.nome || 'home'); setAberto(false)}} href={'/?'+pagin.link}>{pagin.nome}</Link></li>);
+        for(let pag in dados.paginas){
+            let pagin = dados.paginas[pag];
+            html.push(<li key={'menu_'+pag} className={ (propriedades?.mobile ? 'hover:text-cor-principal transition-colors py-3 ' : ' ') + (ativo == (pagin?.link || 'home') ? 'ativo' : '' )} ><Link className={(propriedades?.mobile ? 'p-2 w-full block' : '')} onClick={() => {setAtivo(pagin?.link || 'home'); setTitle(pagin?.nome || 'home'); setAberto(false)}} href={'/'+pagin.link}>{pagin.nome}</Link></li>);
         }
 
 

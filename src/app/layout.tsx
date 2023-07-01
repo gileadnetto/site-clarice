@@ -17,17 +17,7 @@ export const metadata = {
 }
 
 export default async function RootLayout({ children, }: { children: React.ReactNode }) {
-
-    var data: any = [];
-
-    try {
-        let response = await fetch(process.env.API_VERCEL_URL || 'http://localhost:3000/api', { cache: "no-store" });
-        let respon = await response.json();
-        data = await JSON.parse(respon);
-
-    } catch (erro) {
-        data = [];
-    }
+  
 
     return (
         <html lang="pt-br">
@@ -44,12 +34,10 @@ export default async function RootLayout({ children, }: { children: React.ReactN
                     </header>
 
                     <Container main>
-                        <DataProvider data={data}>
-                            <Menu />
-                            <main className='px-10 py-10 font-light flex-1'>
-                                {children}
-                            </main>
-                        </DataProvider>
+                        <Menu />
+                        <main className='px-10 py-10 font-light flex-1'>
+                            {children}
+                        </main>
                     </Container>
 
                     <footer className=' pb-4 bg-zinc-300 flex items-center justify-center align-bottom flex-col'>

@@ -27,11 +27,6 @@ const RenderDadosPadrao = (props: any) => {
 		return Pagina404();
 	}
 
-	// console.log(pags);
-	// if(!pags.includes(pag)) {
-	// 	return Pagina404();
-	// }
-
 	//obtendo os dados da pagina do link
 	var objetoPagina = dadosJson.paginas.filter(function(item:any) {
 		return item.link === pag || (item.link == '' && pag == 'home');
