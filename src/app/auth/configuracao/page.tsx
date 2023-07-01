@@ -276,7 +276,7 @@ export default function Home() {
 
   const salvar = async () => {
 
-    const url = window.location.protocol + '//' + window.location.host + '/api';
+    const url = window.location.protocol + '//' + window.location.host + '/api/storage';
     console.log('salvar action', url);
     setMensagemPost('');
     setPostErro(false)

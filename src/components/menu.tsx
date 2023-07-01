@@ -19,7 +19,6 @@ export default function Menu(props:ProdProps) {
     const [title, setTitle] = useState('home');
     const [dados, setDados] = useState<any>([]);
 
-
     useEffect(() => {
 
         document.title = 'XWPGRT';
@@ -29,7 +28,6 @@ export default function Menu(props:ProdProps) {
        if(pagina?.length){
         setAtivo(pagina[0])
        }
-
         async function fetchData() {
             const protocol = window.location.protocol;
             const host = window.location.host;
