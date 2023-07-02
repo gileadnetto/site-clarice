@@ -234,8 +234,11 @@ export default function Home() {
     async function fetchData() {
       const protocol = window.location.protocol;
       const host = window.location.host;
-      const url = protocol + '//' + host + '/api';
-      let response = await fetch(url);
+      const url = protocol + '//' + host + '/api/storage';
+      let response = await fetch(url,{
+        cache: 'no-store', 
+        next: { revalidate:0 }
+      });
       let res = await response.json();
       res = JSON.parse(res);
       for(let i in res.paginas){
@@ -277,7 +280,6 @@ export default function Home() {
   const salvar = async () => {
 
     const url = window.location.protocol + '//' + window.location.host + '/api/storage';
-    console.log('salvar action', url);
     setMensagemPost('');
     setPostErro(false)
 
@@ -286,6 +288,8 @@ export default function Home() {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(dados),
+        cache: 'no-store',
+        next: { revalidate:0 }
       });
 
       if (!response.ok) {
