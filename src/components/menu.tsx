@@ -3,6 +3,8 @@
 import Link from "next/link";
 import 'tailwindcss/tailwind.css';
 import { useState, useEffect } from "react";
+import { Loader2 } from 'lucide-react';
+
 
 interface ProdProps{
     params?:{
@@ -76,14 +78,42 @@ export default function Menu(props:ProdProps) {
                     </div>
                 
                     <ul className={"flex flex-col w-80 absolute z-50 bg-white boxShadow.xl drop-shadow-md menu-container-links "+ (aberto ? 'mostrar' : '')} >
-                        <Links mobile />
+                        {Object.keys(dados).length ?
+                            <Links mobile />
+                            :
+                            <>
+                            <div role="status" className="max-w-sm animate-pulse relative">
+                                <div className="h-8 bg-gray-200  dark:bg-gray-700 max-w-[360px] mb-1 "></div>
+                                <div className="h-8 bg-gray-200  dark:bg-gray-700 max-w-[360px] mb-1"></div>
+                                <div className="h-8 bg-gray-200  dark:bg-gray-700 max-w-[360px] mb-1"></div>
+                                <div className="h-8 bg-gray-200  dark:bg-gray-700 max-w-[360px] mb-1"></div>
+                                <div className="h-8 bg-gray-200  dark:bg-gray-700 max-w-[360px] mb-1"></div>
+                                <span className="sr-only">Loading...</span>
+                                <Loader2 color="#0b1d78" style={{top:'43%', left:'43%'}} className="animate-spin  inline absolute" />
+                            </div>
+                            </>
+                        }
                     </ul>
                 </div>
             </nav>
 
             <nav className=' tablet:block hidden menu-principal'>
                 <ul>
-                    <Links />
+                    {Object.keys(dados).length > 0 ?
+                        <Links />
+                        :     
+                        <li role="status" className=" animate-pulse relative gap-4" style={{ display: "flex !important", width:"100%", justifyContent:"center"}}>
+                            <div className="h-14 bg-gray-200  dark:bg-gray-700 max-w-[90px] mb-1" style={{ width: "100%",margin:"0px 4px", borderBottomLeftRadius:"6px",  borderBottomRightRadius:"6px"}}></div>
+                            <div className="h-14 bg-gray-200  dark:bg-gray-700 max-w-[110px] mb-1" style={{ width: "100%",margin:"0px 4px", borderBottomLeftRadius:"6px",  borderBottomRightRadius:"6px"}}></div>
+                            <div className="h-14 bg-gray-200  dark:bg-gray-700 max-w-[130px] mb-1" style={{ width: "100%",margin:"0px 4px", borderBottomLeftRadius:"6px",  borderBottomRightRadius:"6px"}}></div>
+                            <div className="h-14 bg-gray-200  dark:bg-gray-700 max-w-[90px] mb-1" style={{ width: "100%",margin:"0px 4px", borderBottomLeftRadius:"6px",  borderBottomRightRadius:"6px"}}></div>
+                            <div className="h-14 bg-gray-200  dark:bg-gray-700 max-w-[160px] mb-1"style={{ width: "100%",margin:"0px 4px", borderBottomLeftRadius:"6px",  borderBottomRightRadius:"6px"}}></div>
+                            <div className="h-14 bg-gray-200  dark:bg-gray-700 max-w-[120px] mb-1" style={{ width: "100%",margin:"0px 4px", borderBottomLeftRadius:"6px",  borderBottomRightRadius:"6px"}}></div>
+                            <div className="h-14 bg-gray-200  dark:bg-gray-700 max-w-[150px] mb-1" style={{ width: "100%",margin:"0px 4px", borderBottomLeftRadius:"6px",  borderBottomRightRadius:"6px"}}></div>
+                            <Loader2 color="#0b1d78" style={{top:'29%', left:'50%'}} className="animate-spin  inline absolute" />
+                        </li>
+                    }
+
                 </ul>
             </nav>
             
