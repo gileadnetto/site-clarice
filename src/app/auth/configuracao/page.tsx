@@ -4,6 +4,7 @@
 import { useEffect, useState } from 'react';
 import MenuSite from '@/components/menuSite';
 import { MD5 } from 'crypto-js';
+import { Loader2 } from 'lucide-react';
 
 
 // export const metadata = {
@@ -226,6 +227,9 @@ export default function Home() {
   const [postErro, setPostErro] = useState(false);
   const [erroLogin, setErroLogin] = useState('');
   const [menusCriados, setMenusCriados] = useState(1);
+  const [salvando, setSalvando] = useState(false);
+
+  
 
   useEffect(() => {
 
@@ -278,6 +282,7 @@ export default function Home() {
   };
 
   const salvar = async () => {
+    setSalvando(true);
 
     const url = window.location.protocol + '//' + window.location.host + '/api/storage';
     setMensagemPost('');
@@ -293,18 +298,21 @@ export default function Home() {
       });
 
       if (!response.ok) {
+        setSalvando(false);
         throw new Error('Erro ao fazer a requisição.');
       }
 
       // Sucesso - fazer algo com a resposta
       console.log('Requisição POST bem-sucedida!');
       window.location.reload;
-      setMensagemPost('Tá salvo muleke')
+      setMensagemPost('Salvo com sucesso')
+      setSalvando(false);
     } catch (error) {
       // Tratar erros
       console.error('Erro na requisição POST:', error);
       setMensagemPost('Ops algo deu errado, chama o Gile')
       setPostErro(true)
+      setSalvando(false);
     }
   };
 
@@ -332,8 +340,17 @@ export default function Home() {
               <RenderConfiguracoes dadosJson={dados} setDados={setDados} handleAlterar={handleAlterar} menuAtivo={menuAtivo} setMenuAtivo={setMenuAtivo}/>
               <button
                 onClick={() => salvar()}
-                className="block mt-4 py-2 px-4 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75">
-                Salvar
+                disabled={salvando}
+                className="block mt-4 py-2 px-4 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75 disabled:bg-gray-400">
+                {salvando ?
+                    <>
+                      <Loader2 color="white" className='animate-spin  inline mr-2' />
+                      Salvando
+                    </>
+                    :
+                    <>Salvar</>
+                }
+               
               </button>
               {mensagemPost && <p className={' mt-4 font-medium ' + (!postErro ? ' text-green-600' : 'text-red-400')}>{mensagemPost}</p>}
             </>
