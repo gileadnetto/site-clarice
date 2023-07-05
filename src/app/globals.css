@@ -163,6 +163,7 @@
     background: white;
     position: relative;
     padding: 25px 15px;
+    box-shadow: 4px 4px 3px -2px #c0c0c0c4;
   }
   .title-site{
     /* line-height: 1;
@@ -190,13 +191,18 @@
     transform: translate(-21%, 1%) rotate(349deg);
     box-shadow: 2px 2px 4px 1px #ababab;
   }
-  /* .title-site::before{
+
+ 
+  /* .container-section::after{
     content: '';
-    display: inline-block;
-    width: 3px;
-    height: 26px;
-    background-color: #0b1d78;
-    margin-right: 5px;
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    width: 90%;
+    height: 50px;
+    background: rgba(0, 0, 0, 0.3);
+    transform-origin: left;
+    transform: skewY(5deg);
   } */
 
   footer{

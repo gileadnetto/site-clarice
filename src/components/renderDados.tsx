@@ -39,9 +39,13 @@ const RenderDadosPadrao = (props: any) => {
 		if(!dado){
 			continue;
 		}
-		if (dado?.tipo == 'lista') {
 
-			let htmlComp = dado?.Titulo && dado.Titulo && dado?.Titulo.trim() ? [<p key={i + 'sad'} className="font-medium title-site">{dado?.Titulo}</p>] : [];
+		let hasTitle = dado?.Titulo && dado.Titulo && dado?.Titulo.trim();
+
+		if (dado?.tipo == 'lista') {
+			
+
+			let htmlComp = hasTitle ? [<p key={i + 'sad'} className="font-medium title-site">{dado?.Titulo}</p>] : [];
 			// Adicionando elementos à lista
 
 			let htmlCompAux = [];
@@ -60,12 +64,12 @@ const RenderDadosPadrao = (props: any) => {
 				</ul>
 			);
 
-			html.push(<div key={'section_List_' + i} className={'mb-12 container-section '}><section >{htmlComp}</section></div>);
+			html.push(<div key={'section_List_' + i} className={hasTitle ? ' mb-12  container-section ': ' mb-12  '}><section >{htmlComp}</section></div>);
 		}
 		else if (dado?.imagem) {
 			html.push(
-				<div key={pag + '_' + i} className={'mb-12 container-section '}>
-					{ dado?.Titulo && dado.Titulo && dado?.Titulo.trim() && <p className='font-medium title-site'>{dado.Titulo}</p> }
+				<div key={pag + '_' + i} className={hasTitle ? 'mb-12  container-section ': ' mb-12  '}>
+					{ hasTitle && <p className='font-medium title-site'>{dado.Titulo}</p> }
 					<section key={pag + '_' + i} className='flex gap-5 mt-7 ' >
 						<div className='flex-1'>
 							<p dangerouslySetInnerHTML={{ __html: dado.conteudo }}></p>
@@ -80,8 +84,8 @@ const RenderDadosPadrao = (props: any) => {
 		}
 		else {
 			html.push(
-				<div key={pag +'2_' + i} className={'mb-20 container-section'}>
-					{ dado?.Titulo && dado.Titulo && dado?.Titulo.trim() && <p className='font-medium title-site'>{dado.Titulo}</p> }
+				<div key={pag +'2_' + i} className={hasTitle ? 'container-section mb-20 ': ' mb-20  '}>
+					{ hasTitle && <p className='font-medium title-site'>{dado.Titulo}</p> }
 					<section className='mt-4'>
 						<p dangerouslySetInnerHTML={{ __html: dado.conteudo }}></p>
 					</section>

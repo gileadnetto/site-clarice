@@ -62,7 +62,7 @@ export default function Menu(props:ProdProps) {
     return (
 
         <>
-            <nav className='bg-cor-principal/90 tablet:hidden  block menu-principal-mobile'>
+            <nav className='bg-cor-principal/90 tablet:hidden  block menu-principal-mobile z-50'>
                 <div className="relative">
 
 
@@ -77,7 +77,7 @@ export default function Menu(props:ProdProps) {
                         </div>
                     </div>
                 
-                    <ul className={"flex flex-col w-80 absolute z-50 bg-white boxShadow.xl drop-shadow-md menu-container-links "+ (aberto ? 'mostrar' : '')} >
+                    <ul className={"flex flex-col w-80 absolute bg-white boxShadow.xl drop-shadow-md menu-container-links "+ (aberto ? 'mostrar' : '')} >
                         {Object.keys(dados).length ?
                             <Links mobile />
                             :
