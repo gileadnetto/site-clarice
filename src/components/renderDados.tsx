@@ -60,13 +60,13 @@ const RenderDadosPadrao = (props: any) => {
 				</ul>
 			);
 
-			html.push(<section key={'section_' + i} className='mb-12'>{htmlComp}</section>);
+			html.push(<div key={'section_List_' + i} className={'mb-12 container-section '}><section >{htmlComp}</section></div>);
 		}
 		else if (dado?.imagem) {
 			html.push(
-				<div key={pag + '_' + i} className={dado?.class || ''}>
+				<div key={pag + '_' + i} className={'mb-12 container-section '}>
 					{ dado?.Titulo && dado.Titulo && dado?.Titulo.trim() && <p className='font-medium title-site'>{dado.Titulo}</p> }
-					<section key={pag + '_' + i} className={'flex gap-5 mt-7 mb-12 ' + dado?.class || ''} >
+					<section key={pag + '_' + i} className='flex gap-5 mt-7 ' >
 						<div className='flex-1'>
 							<p dangerouslySetInnerHTML={{ __html: dado.conteudo }}></p>
 						</div>
@@ -80,9 +80,9 @@ const RenderDadosPadrao = (props: any) => {
 		}
 		else {
 			html.push(
-				<div key={pag +'2_' + i} className={dado?.class || ''}>
+				<div key={pag +'2_' + i} className={'mb-20 container-section'}>
 					{ dado?.Titulo && dado.Titulo && dado?.Titulo.trim() && <p className='font-medium title-site'>{dado.Titulo}</p> }
-					<section className='mb-20 mt-4'>
+					<section className='mt-4'>
 						<p dangerouslySetInnerHTML={{ __html: dado.conteudo }}></p>
 					</section>
 				</div>

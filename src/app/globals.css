@@ -159,10 +159,14 @@
     box-shadow: 0px 1px 6px 0px silver;
   }
 
+  .container-section{
+    background: white;
+    position: relative;
+    padding: 25px 15px;
+  }
   .title-site{
-    line-height: 1;
+    /* line-height: 1;
     font-size: 1rem;
-    /* color: #300B78; */
     letter-spacing: 2px;
     display: inline-block;
 
@@ -170,7 +174,21 @@
     padding: 4px 5px 4px 4px;
     background: #660B78;
     display: inline-block;
+    color: white; */
+
+    line-height: 1;
+    font-size: 1rem;
+    letter-spacing: 2px;
+    border-left: 7px solid #40074c;
+    padding: 4px 5px 4px 4px;
+    background: #660B78;
+    display: inline-block;
     color: white;
+    transform: rotate(-17deg);
+    position: absolute;
+    top: 0;
+    transform: translate(-21%, 1%) rotate(349deg);
+    box-shadow: 2px 2px 4px 1px #ababab;
   }
   /* .title-site::before{
     content: '';
