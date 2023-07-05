@@ -160,15 +160,10 @@
   }
 
   .title-site{
-    /* background-image: url('../../public/imagens/overlay.png');
-    display: inline-flex !important;
-    align-items: center; */
     line-height: 1;
-    /* background-image: url('../../public/imagens/overlay.png');
-    background-blend-mode: darken;
-    background-size: 15%;
-    padding: 0 12px 0 0; */
-    font-size: 1.06rem;
+    font-size: 1.2rem;
+    color: #300B78;
+    letter-spacing: 2px;
   }
   /* .title-site::before{
     content: '';
