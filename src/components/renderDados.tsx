@@ -41,7 +41,7 @@ const RenderDadosPadrao = (props: any) => {
 		}
 		if (dado?.tipo == 'lista') {
 
-			let htmlComp = [<p key={i + 'sad'} className="font-medium title-site">{dado?.Titulo}</p>];
+			let htmlComp = dado?.Titulo && dado.Titulo && dado?.Titulo.trim() ? [<p key={i + 'sad'} className="font-medium title-site">{dado?.Titulo}</p>] : [];
 			// Adicionando elementos à lista
 
 			let htmlCompAux = [];
@@ -65,7 +65,7 @@ const RenderDadosPadrao = (props: any) => {
 		else if (dado?.imagem) {
 			html.push(
 				<div key={pag + '_' + i} className={dado?.class || ''}>
-					<p className='font-medium title-site'>{dado.Titulo}</p>
+					{ dado?.Titulo && dado.Titulo && dado?.Titulo.trim() && <p className='font-medium title-site'>{dado.Titulo}</p> }
 					<section key={pag + '_' + i} className={'flex gap-5 mt-7 mb-12 ' + dado?.class || ''} >
 						<div className='flex-1'>
 							<p dangerouslySetInnerHTML={{ __html: dado.conteudo }}></p>
@@ -81,7 +81,7 @@ const RenderDadosPadrao = (props: any) => {
 		else {
 			html.push(
 				<div key={pag +'2_' + i} className={dado?.class || ''}>
-					<p className='font-medium title-site'>{dado.Titulo}</p>
+					{ dado?.Titulo && dado.Titulo && dado?.Titulo.trim() && <p className='font-medium title-site'>{dado.Titulo}</p> }
 					<section className='mb-20 mt-4'>
 						<p dangerouslySetInnerHTML={{ __html: dado.conteudo }}></p>
 					</section>

@@ -161,9 +161,16 @@
 
   .title-site{
     line-height: 1;
-    font-size: 1.2rem;
-    color: #300B78;
+    font-size: 1rem;
+    /* color: #300B78; */
     letter-spacing: 2px;
+    display: inline-block;
+
+    border-left: 7px solid #40074c;
+    padding: 4px 5px 4px 4px;
+    background: #660B78;
+    display: inline-block;
+    color: white;
   }
   /* .title-site::before{
     content: '';
