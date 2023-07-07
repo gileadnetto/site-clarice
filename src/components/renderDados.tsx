@@ -64,31 +64,44 @@ const RenderDadosPadrao = (props: any) => {
 				</ul>
 			);
 
-			html.push(<div key={'section_List_' + i} className={hasTitle ? ' mb-12  container-section ': ' mb-12  '}><section >{htmlComp}</section></div>);
+			html.push(
+				<div key={'section_List_' + i} className={hasTitle ? '  container-section-main ': ' '}>
+					<div className={hasTitle ? ' mt-10 mb-20  container-section ': ' mt-10 mb-20  '}>
+						<section >{htmlComp}</section>
+					</div>
+				</div>
+			);
 		}
 		else if (dado?.imagem) {
 			html.push(
-				<div key={pag + '_' + i} className={hasTitle ? 'mb-12  container-section ': ' mb-12  '}>
-					{ hasTitle && <p className='font-medium title-site'>{dado.Titulo}</p> }
-					<section key={pag + '_' + i} className='flex gap-5 mt-7 ' >
-						<div className='flex-1'>
-							<p dangerouslySetInnerHTML={{ __html: dado.conteudo }}></p>
-						</div>
-						<div className='flex-1'>
-							<Image src={dado.imagem} alt="imagem" width={500} height={300} crossOrigin="anonymous" />
-						</div>
-					</section>
+				<div key={pag + '_' + i} className={hasTitle ? 'container-section-main ': ' '}>
+					<div className={hasTitle ? 'mt-10 mb-20  container-section ': ' mt-10 mb-20  '}>
+						{ hasTitle && <p className='font-medium title-site'>{dado.Titulo}</p> }
+						<section key={pag + '_' + i} className='flex gap-5 mt-7 ' >
+							<div className='flex-1'>
+								<p dangerouslySetInnerHTML={{ __html: dado.conteudo }}></p>
+							</div>
+							<div className='flex-1'>
+								<Image src={dado.imagem} alt="imagem" width={500} height={300} crossOrigin="anonymous" />
+							</div>
+						</section>
+						{/* <Image src='/imagens/pin2.png' alt="pin2" style={{"color":"transparent","position":"absolute","right":"-28px","top":"-22px","width":"57px"}} width={400} height={300} crossOrigin="anonymous" /> */}
+					</div>
 				</div>
+
 			);
 
 		}
 		else {
 			html.push(
-				<div key={pag +'2_' + i} className={hasTitle ? 'container-section mb-20 ': ' mb-20  '}>
-					{ hasTitle && <p className='font-medium title-site'>{dado.Titulo}</p> }
-					<section className='mt-4'>
-						<p dangerouslySetInnerHTML={{ __html: dado.conteudo }}></p>
-					</section>
+				<div key={pag +'2_' + i} className={hasTitle ? 'container-section-main': ''}>
+					<div className={hasTitle ? 'container-section mt-10 mb-20 ': ' mt-10 mb-20  '}>
+						{ hasTitle && <p className='font-medium title-site'>{dado.Titulo}</p> }
+						<section className='mt-4'>
+							<p dangerouslySetInnerHTML={{ __html: dado.conteudo }}></p>
+						</section>
+						{/* <Image src='/imagens/pin2.png' alt="pin2" style={{"color":"transparent","position":"absolute","right":"-28px","top":"-22px","width":"57px"}} width={400} height={300} crossOrigin="anonymous" /> */}
+					</div>
 				</div>
 			)
 		}
