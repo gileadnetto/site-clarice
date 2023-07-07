@@ -215,6 +215,22 @@
     filter: blur(5px);
   }
 
+
+  @media screen and (max-width:767px){
+    .container-section-main::after, .container-section-main::before{
+      bottom: -4px;
+    }
+    .container-section-main::after{
+      transform: skewY(3deg);
+      right: 2%;
+    }
+    .container-section-main::before{
+      transform: skewY(-3deg);
+      left: 2%;
+    }
+  }
+  
+
   footer{
     border-top: 5px solid theme('colors.cor-principal');
   }
