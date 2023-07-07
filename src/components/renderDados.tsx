@@ -9,7 +9,7 @@ import { Svg404 } from '../components/svgs';
 // import { useState } from 'react';
 
 const Pagina404 = () =>{
-	return <center><Svg404 style={{width:"60%", minWidth: '100px'}}  /><h2 className='tracking-widest tablet:text-2xl text-1xl font-medium'>Pagina não encontrada</h2></center>
+	return <center><Svg404 style={{width:"60%", minWidth: '100px'}}  /><h2 className='tracking-widest desktop:text-2xl text-1xl font-medium'>Pagina não encontrada</h2></center>
 }
 
 const RenderDadosPadrao = (props: any) => {

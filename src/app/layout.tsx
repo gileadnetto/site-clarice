@@ -23,10 +23,10 @@ export default async function RootLayout({ children, }: { children: React.ReactN
         <html lang="pt-br">
             <body className="bg-zinc-0 text-cor-texto" style={{ minHeight: '100vh' }}>
                 <div>
-                    <header className="px-16 bg-white pt-32 tablet:pb-24 pb-11 uppercase header-img">
+                    <header className="px-16 bg-white pt-32 desktop:pb-24 pb-11 uppercase header-img">
                         <Container>
                             <center className='bg-white/90 px-5 py-4'>
-                                <h1 className=' text-cor-principal tracking-widest tablet:text-4xl text-2xl font-medium'>X Workshop on <span className='destacar'>Poisson</span> Geometry <br></br> and Related Topics</h1>
+                                <h1 className=' text-cor-principal tracking-widest desktop:text-4xl text-2xl font-medium'>X Workshop on <span className='destacar'>Poisson</span> Geometry <br></br> and Related Topics</h1>
                                 <p className='text-gray-600 mt-3'>October 04-06, 2023</p>
                                 <p className='text-gray-500 text-xs'>IME-USP, São Paulo </p>
                             </center>

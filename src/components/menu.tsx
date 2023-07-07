@@ -62,7 +62,7 @@ export default function Menu(props:ProdProps) {
     return (
 
         <>
-            <nav className='bg-cor-principal/90 tablet:hidden  block menu-principal-mobile z-50'>
+            <nav className='bg-cor-principal/90 desktop:hidden  block menu-principal-mobile z-50'>
                 <div className="relative">
 
 
@@ -97,7 +97,7 @@ export default function Menu(props:ProdProps) {
                 </div>
             </nav>
 
-            <nav className=' tablet:block hidden menu-principal'>
+            <nav className=' desktop:block hidden menu-principal'>
                 <ul>
                     {Object.keys(dados).length > 0 ?
                         <Links />
