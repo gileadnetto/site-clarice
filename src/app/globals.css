@@ -178,14 +178,14 @@
     letter-spacing: 2px;
     border-left: 7px solid #5e5f6e;
     padding: 4px 5px 4px 4px;
-    background: #989898;
+    background: #757789;
     display: inline-block;
     color: white;
     transform: rotate(-17deg);
     position: absolute;
     top: 0;
     transform: translate(-21%, 1%) rotate(349deg);
-    box-shadow: 2px 2px 4px 1px #757789;
+    box-shadow: 2px 2px 4px 1px #ababab;
   }
  
   .container-section-main::after{
