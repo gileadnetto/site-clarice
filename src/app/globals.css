@@ -176,7 +176,7 @@
     line-height: 1;
     font-size: 1rem;
     letter-spacing: 2px;
-    border-left: 7px solid #787777;
+    border-left: 7px solid #5e5f6e;
     padding: 4px 5px 4px 4px;
     background: #989898;
     display: inline-block;
@@ -185,7 +185,7 @@
     position: absolute;
     top: 0;
     transform: translate(-21%, 1%) rotate(349deg);
-    box-shadow: 2px 2px 4px 1px #ababab;
+    box-shadow: 2px 2px 4px 1px #757789;
   }
  
   .container-section-main::after{
