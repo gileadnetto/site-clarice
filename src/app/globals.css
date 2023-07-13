@@ -215,6 +215,10 @@
     filter: blur(5px);
   }
 
+  .foqfDc{
+    display: none;
+  }
+
 
   @media screen and (max-width:767px){
     .container-section-main::after, .container-section-main::before{
