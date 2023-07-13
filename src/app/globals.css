@@ -215,7 +215,7 @@
     filter: blur(5px);
   }
 
-  .foqfDc{
+  span[jsslot] {
     display: none;
   }
 
