@@ -155,7 +155,7 @@
   .container-site.container-main >div{
     width:100vw;
     max-width: 1124px;
-    min-height: calc(100vh - 582px);
+    min-height: calc(100vh - 568px);
     box-shadow: 0px 1px 6px 0px silver;
   }
 
