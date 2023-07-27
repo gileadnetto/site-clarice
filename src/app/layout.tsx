@@ -49,7 +49,7 @@ export default async function RootLayout({ children, }: { children: React.ReactN
                             <a target="_blank" href='https://inctmat.impa.br/'><Image className="hover:-translate-y-2 transition duration-200 " src='/imagens/inctmat.png' alt="inctmat logo" width={130} height={40} crossOrigin="anonymous" /></a>
                         </div>
                         <div className='mt-0 mb-3'>
-                            <p className='text-xs'>Contact : <b className='text-cor-principal'><a href="mailto:workshoppoissongeometry@gmail.com">workshoppoissongeometry@gmail.com</a></b></p>
+                            <p className='text-xs'>Contact : <b className='text-cor-principal'><a href="mailto:workshoppoissongeometry@gmail.com" target='_blank'>workshoppoissongeometry@gmail.com</a></b></p>
                         </div>
 
                         <div className='flex justify-center items-center text-xs'>
