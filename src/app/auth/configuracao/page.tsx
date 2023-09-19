@@ -184,7 +184,13 @@ let RenderConfiguracoes = (props: any) => {
     htmlInputs.push(
       <div key={'imagens_' + i + '_' + x} className='mb-5'>
         <label>Url Imagem:</label>
-        <input type="text" value={sessao.imagem} onChange={e => { sessao.imagem = e.target.value;; props.handleAlterar(props.dadosJson); }} className=" w-full my-1 mr-2 rounded-md border-0 py-1.5 pl-2 pr-9 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-1 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"></input>
+        <input type="text" value={sessao.imagem} onChange={e => { sessao.imagem = e.target.value; props.handleAlterar(props.dadosJson); }} className=" w-full my-1 mr-2 rounded-md border-0 py-1.5 pl-2 pr-9 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-1 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"></input>
+      </div>
+    );
+
+    htmlInputs.push(
+      <div key={'latex_' + i + '_' + x} className='mb-5'>
+        <label><input type="checkbox" value={sessao.hasLatex} onChange={e => { sessao.hasLatex = e.target.checked; props.handleAlterar(props.dadosJson); }} className="accent-pink-500" checked={sessao?.hasLatex && sessao?.hasLatex || false}></input> Processar código Latex</label>
       </div>
     );
 

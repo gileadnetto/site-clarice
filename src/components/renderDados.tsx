@@ -5,6 +5,8 @@ import Link from "next/link";
 import 'tailwindcss/tailwind.css';
 import { useState } from "react";
 import { Svg404 } from '../components/svgs';
+import 'katex/dist/katex.min.css'
+import TeX from 'react-latex-next'
 
 // import { useState } from 'react';
 
@@ -79,7 +81,12 @@ const RenderDadosPadrao = (props: any) => {
 						{ hasTitle && <p className='font-medium title-site'>{dado.Titulo}</p> }
 						<section key={pag + '_' + i} className='flex gap-5 mt-7 ' >
 							<div className='flex-1'>
-								<p dangerouslySetInnerHTML={{ __html: dado.conteudo }}></p>
+								{
+									dado?.hasLatex && dado.hasLatex ?
+									<TeX>{dado.conteudo}</TeX>
+									:
+									<p dangerouslySetInnerHTML={{ __html: dado.conteudo }}></p>
+								}
 							</div>
 							<div className='flex-1'>
 								<Image src={dado.imagem} alt="imagem" width={500} height={300} crossOrigin="anonymous" />
@@ -98,7 +105,13 @@ const RenderDadosPadrao = (props: any) => {
 					<div className={hasTitle ? 'container-section mt-10 mb-20 ': ' mt-10 mb-20  '}>
 						{ hasTitle && <p className='font-medium title-site'>{dado.Titulo}</p> }
 						<section className='mt-4'>
-							<p dangerouslySetInnerHTML={{ __html: dado.conteudo }}></p>
+							{
+								dado?.hasLatex && dado.hasLatex ?
+								<TeX>{dado.conteudo}</TeX>
+								:
+								<p dangerouslySetInnerHTML={{ __html: dado.conteudo }}></p>
+							}
+							
 						</section>
 						{/* <Image src='/imagens/pin2.png' alt="pin2" style={{"color":"transparent","position":"absolute","right":"-28px","top":"-22px","width":"57px"}} width={400} height={300} crossOrigin="anonymous" /> */}
 					</div>
