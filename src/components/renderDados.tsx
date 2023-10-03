@@ -49,6 +49,11 @@ const RenderDadosPadrao = (props: any) => {
 
 			let htmlComp = hasTitle ? [<p key={i + 'sad'} className="font-medium title-site">{dado?.Titulo}</p>] : [];
 			// Adicionando elementos à lista
+			if(dado?.ordenarLista && dado.ordenarLista){
+				dado.dados = dado.dados.map((s: any) => s.trim());
+				dado.dados.sort();
+			}
+				
 
 			let htmlCompAux = [];
 			for (let x in dado.dados) {

@@ -164,13 +164,20 @@ let RenderConfiguracoes = (props: any) => {
             </button>
           </div>);
       }
+
       htmlInputs.push(
         <div key={'button_' + i + '_' + x + '_'}>
-          <button className='ml-1 mx-4 hover:text-green-600' onClick={() => { sessao.dados.push(''); props.handleAlterar(props.dadosJson); }}>
+          <button className='ml-1 mx-4 hover:text-green-600 mt-2' onClick={() => { sessao.dados.push(''); props.handleAlterar(props.dadosJson); }}>
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 h-5 text-green-500">
               <path strokeLinecap="round" strokeLinejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
             </svg>
           </button>
+        </div>
+      );
+
+      htmlInputs.push(
+        <div key={'ordenacao_' + i + '_' + x} className='mb-5 ml-1'>
+          <label><input type="checkbox" value={sessao.ordenarLista} onChange={e => { sessao.ordenarLista = e.target.checked; props.handleAlterar(props.dadosJson); }} className="accent-pink-500" checked={sessao?.ordenarLista && sessao?.ordenarLista || false}></input> Ordenar lista</label>
         </div>
       );
     }
