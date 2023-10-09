@@ -35,8 +35,8 @@ export default function Menu(props:ProdProps) {
             const host = window.location.host;
             const url = protocol + '//' + host + '/api';
             let response = await fetch(url,{
-                cache: 'no-cache', 
-                next: { revalidate:3 }
+                cache: 'force-cache', 
+                next: { revalidate:300 }
               });
             let res = await response.json();
             res = JSON.parse(res);
